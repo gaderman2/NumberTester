@@ -5,7 +5,6 @@ public class Main {
         NumberTester numberTester = new NumberTester("C:\\Users\\user\\Documents\\Schule\\3. Klasse\\POS\\NumberTester\\src\\numbers.txt");
         numberTester.setOddEvenTester(x -> x % 2 == 0);
         numberTester.setPrimeTester(x -> {
-
             boolean[] var = new boolean[x + 1];
 
             for(int i = 2; i <= Math.sqrt(x); i++){
