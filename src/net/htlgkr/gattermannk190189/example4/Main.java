@@ -92,20 +92,61 @@ public class Main {
 
             if (menu == 4) System.exit(1);
 
+            while(true) {
+                Number a = new Number();
+                Number b = new Number();
+                System.out.print("Enter number x a> ");
+                a.setA(input.nextInt());
+                System.out.print("Enter number x b> ");
+                a.setB(input.nextInt());
+                System.out.print("Enter number y a> ");
+                b.setA(input.nextInt());
+                System.out.print("Enter number y b> ");
+                b.setB(input.nextInt());
 
-            Number a = new Number();
-            Number b = new Number();
-            System.out.print("Enter number x a> ");
-            a.setA(input.nextInt());
-            System.out.print("Enter number x b> ");
-            b.setA(input.nextInt());
-            System.out.print("Enter number y a> ");
-            a.setB(input.nextInt());
-            System.out.print("Enter number y b> ");
-            a.setB(input.nextInt());
+                int calculation = calculation();
 
-            switch(calculation()){
-                
+                if(calculation <= 0 || calculation > 4) continue;
+
+                System.out.println("----------------------");
+                System.out.println("Solution:");
+
+                switch (calculation) {
+                    case 1:
+                        switch (menu) {
+                            case 1 -> printResults(rationalCalculator.add(a, b));
+                            case 2 -> printResults(vectorCalculator.add(a, b));
+                            case 3 -> printResults(complexCalculator.add(a, b));
+                        }
+                        break;
+
+                    case 2:
+                        switch (menu) {
+                            case 1 -> printResults(rationalCalculator.subtract(a, b));
+                            case 2 -> printResults(vectorCalculator.subtract(a, b));
+                            case 3 -> printResults(complexCalculator.subtract(a, b));
+                        }
+                        break;
+
+                    case 3:
+                        switch (menu) {
+                            case 1 -> printResults(rationalCalculator.multiply(a, b));
+                            case 2 -> printResults(vectorCalculator.multiply(a, b));
+                            case 3 -> printResults(complexCalculator.multiply(a, b));
+                        }
+                        break;
+
+                    case 4:
+                        switch (menu) {
+                            case 1 -> printResults(rationalCalculator.divide(a, b));
+                            case 2 -> printResults(vectorCalculator.divide(a, b));
+                            case 3 -> printResults(complexCalculator.divide(a, b));
+                        }
+                        break;
+                }
+
+                System.out.println("----------------------");
+                break;
             }
         }
     }
@@ -129,6 +170,11 @@ public class Main {
         System.out.println("5 - enter numbers again");
 
         return input.nextInt();
+    }
+
+    private static void printResults(Number result){
+        System.out.println("a = " + result.getA());
+        System.out.println("b = " + result.getB());
     }
 
 }
